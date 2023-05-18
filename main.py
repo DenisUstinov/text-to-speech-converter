@@ -1,7 +1,17 @@
 from texttospeechconverter import TextToSpeechConverter
 
+
+def read_file_lines(file_path):
+    lines = []
+    with open(file_path, 'r', encoding='utf-8') as file:
+        for line in file:
+            lines.append(line.strip())
+    return lines
+
+
 if __name__ == '__main__':
-    input_list = ["Hello:привет", "world:мир"]
+    file_path = "words.txt"
+    input_list = read_file_lines(file_path)
     delimiter = ":"
     output_filename = "output.mp3"
     languages = "en:ru"
